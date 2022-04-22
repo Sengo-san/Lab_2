@@ -24,5 +24,4 @@ HEADERS += \
     Subject.h
 
 DISTFILES += \
-    TestFile1 \
-    TestFile2
+    TestFile1

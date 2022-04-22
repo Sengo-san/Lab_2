@@ -13,8 +13,8 @@ class Subject
   public:
     void Attach (MyFile *file_); //добавить в отслеживаемые
     void Detach (MyFile *file_); //убрать из отслеживаемых
-    void NotifyExist (bool exist_); //уведомить об изменении существования
-    void NotifySize (int size_); //уведомить об изменении размера
+    void NotifyExist (bool exist_); //изменить существование и уведомить об изменении
+    void NotifySize (int size_); //изменить размер и уведомить об изменении
 };
 
 #endif // SUBJECT_H

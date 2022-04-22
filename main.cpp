@@ -9,28 +9,32 @@
 int main(int argc, char *argv[])
 {
 
-    MyFile file1 ("TestFile1.txt");//Источник
+    MyFile file1 ("C:\\Users/tikho/Documents/Lab_2/Testfile1.txt"); //Источник
 
     Subject subj; //объект-наблюдатель
 
     subj.Attach(&file1);  //связываем наблюдателя с источником
 
-
-bool oldex = 0, newex;//отметки существования
-int oldsize = 0, newsize;//отметки размера
+bool oldex = 0, newex = 0;//отметки существования
+int oldsize = 0, newsize = 0;//отметки размера
 
   while (true)
   {
-      std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
-      ifstream str ("Testfile1", ios::ate);
+      std::this_thread::sleep_for( std::chrono::milliseconds( 500 ) );
+      ifstream str ("C:\\Users/tikho/Documents/Lab_2/Testfile1.txt", ios::ate);
+
       if (str) {
          newex = 1;
          newsize = str.tellg();
       }
+      else {
+           newex = 0;
+           newsize = 0;
+      }
       if (newex != oldex) file1.UpdateExist(newex);
       if (newex && newsize != oldsize) file1.UpdateSize(newsize);
-      oldsize=newsize;
-      oldex=newex;
+      oldsize = newsize;
+      oldex = newex;
       str.close();
   }
 

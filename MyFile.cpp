@@ -3,21 +3,23 @@
 
 #include "MyFile.h"
 
-/*
+
 MyFile::MyFile (string path_)
 {
-    fstr.open(path_, ios::ate);
-    size = fstr.tellg();
-    exist = 1;
+    fstream fstr_ (path_, ios::ate);
+  if (fstr_) {
+      exist = 1;
+      size = fstr_.tellg();
+      path = path_;
+  }
 }
-*/
 
 
 void MyFile::UpdateExist(bool exist_)
 {
     exist = exist_;
     if (exist)
-        cout << "File now exists"<< endl;
+        cout << "File now exists" << endl;
     else
         cout << "File now doesn`t exists"<< endl;
 }
@@ -29,11 +31,4 @@ void MyFile::UpdateSize(int size_)
         size = size_;
         cout << "File size is " << size << " KB now" << endl;
     }
-
-}
-
-
-MyFile::~MyFile()
-{
-   fstr.close();
 }
