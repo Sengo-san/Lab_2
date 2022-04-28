@@ -3,11 +3,13 @@
 
 #include "Subject.h"
 
-class ConcreteFile : Subject
+
+
+class ConcreteFile : Subject //реальный класс, реализующий Subject - класс, отслеживающий наблюдателей
 {
 public:
-    void ChangeExist (bool exist_);
-    void ChangeSize (int size_);
+    void ChangeExist (bool exist_); //изменить существование
+    void ChangeSize (int size_); //изменить размер
 };
 
 void ConcreteFile::ChangeExist(bool exist_)

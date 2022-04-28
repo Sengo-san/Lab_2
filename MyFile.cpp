@@ -7,7 +7,7 @@
 MyFile::MyFile (string path_)
 {
     fstream fstr_ (path_, ios::ate);
-  if (fstr_) {
+  if (fstr_) { //если открылся, устанавливаем член-данные
       exist = 1;
       size = fstr_.tellg();
       path = path_;
@@ -18,16 +18,17 @@ MyFile::MyFile (string path_)
 void MyFile::UpdateExist(bool exist_)
 {
     exist = exist_;
-    if (exist)
+    if (exist) //если существует
         cout << "File now exists" << endl;
-    else
+    else    //если не существует
         cout << "File now doesn`t exists"<< endl;
 }
 
 void MyFile::UpdateSize(int size_)
 {
-    if (exist)
+    if (exist) //если существует
     {
+        //присваиваем и выводим размер
         size = size_;
         cout << "File size is " << size << " KB now" << endl;
     }

@@ -5,10 +5,9 @@
 
 #include "MyFile.h"
 
-
-class Subject
+class Subject   //класс, отслеживающий наблюдателей
 {
-    std::vector<MyFile*> files; //наблюдаемые файлы
+    std::vector<MyFile*> files; //список наблюдаемых файлов
 
   public:
     void Attach (MyFile *file_); //добавить в отслеживаемые
