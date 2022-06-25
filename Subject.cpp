@@ -2,20 +2,19 @@
 
 #include <algorithm>
 
-void Subject::Attach(MyFile *file_)
+void Subject::Attach(Observer *observer_)
 {
-    files.push_back(file_);
+    observers.push_back(observer_);
 }
 
-void Subject::Detach(MyFile *file_)
+void Subject::Detach(Observer *observer_)
 {
-   files.erase(remove(files.begin(),files.end(), file_), files.end());
+   observers.erase(remove(observers.begin(),observers.end(), observer_), observers.end());
 }
 
 void Subject::NotifyExist(bool exist_)
 {
-    //ищем нужный файл, меняем существование методом MyFile::UpdateExist
-    for (vector<MyFile*>::const_iterator iter = files.begin(); iter != files.end(); ++iter) {
+    for (vector<Observer*>::const_iterator iter = observers.begin(); iter != observers.end(); ++iter) {
         if (*iter != 0) {
             (*iter)->UpdateExist(exist_);
         }
@@ -25,7 +24,7 @@ void Subject::NotifyExist(bool exist_)
 void Subject::NotifySize(int size_)
 {
     //ищем нужный файл, меняем размер методом MyFile::UpdateSize
-    for (vector<MyFile*>::const_iterator iter = files.begin(); iter != files.end(); ++iter) {
+    for (vector<Observer*>::const_iterator iter = observers.begin(); iter != observers.end(); ++iter) {
         if (*iter != 0) {
             (*iter)->UpdateSize(size_);
         }

@@ -18,7 +18,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    ConcreteFile.h \
+    ConcreteSubject.h \
     MyFile.h \
     Observer.h \
     Subject.h
